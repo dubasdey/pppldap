@@ -26,6 +26,11 @@ DESTINATION=/usr/lib/pppd/2.4.5/pppd_ldap.so
 CFLAGS=-I../.. -I../../../include -O2
 LDFLAGS=-lldap -lc
 
+get-deps:
+apt-get source pptpd 
+apt-get build-dep pptpd 
+apt-get source libldap2-dev
+
 all:
 	gcc $(CFLAGS) -c -o main.o main.c 				# compile main
 	ld -shared -o pppd_ldap.so  main.o $(LDFLAGS) 	# build pppd_ldap.so
