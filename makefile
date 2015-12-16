@@ -24,7 +24,7 @@ DESTINATION=/usr/lib/pppd/2.4.5/pppd_ldap.so
 
 
 # change Here the required dev source folders for ppp and openLDAP
-CFLAGS=-I../.. -I../../../include -O2
+CFLAGS=-I../.. -I../../../include -O2 -fPIC
 LDFLAGS=-lldap -lc
 
 get-deps:
