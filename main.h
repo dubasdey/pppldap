@@ -35,8 +35,6 @@ struct ldap_data {
 	bool		rebind; 			/* set to 1, reserved */
 };
 
-
-
 /* plugin main functions */
 static int  ldap_setoptions(LDAP *ld, LDAPMessage *mesg,struct ldap_data *ldap_data);
 

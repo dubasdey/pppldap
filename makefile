@@ -20,8 +20,8 @@
 #
 
 # Change this with your PPP plugin folder
-#DESTINATION=/usr/lib/pppd/2.4.5/pppd_ldap.so
-DESTINATION=./pppd_ldap.so
+DESTINATION=/usr/lib/pppd/2.4.5/pppd_ldap.so
+
 
 # change Here the required dev source folders for ppp and openLDAP
 CFLAGS=-I../.. -I../../../include -O2
@@ -34,8 +34,9 @@ get-deps:
 build:
 	gcc $(CFLAGS) -c -o main.o main.c 				# compile main
 	ld -shared -o pppd_ldap.so  main.o $(LDFLAGS) 	# build pppd_ldap.so
-	cp pppd_ldap.so $(DESTINATION)					# copy
 
+install:
+	cp pppd_ldap.so $(DESTINATION)					# copy
 clean:
 	rm *.o *.so *~									# clean compiled files (locals)
 	

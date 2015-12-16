@@ -35,8 +35,6 @@
 
 #include "main.h"
 
-//char pppd_version[] = VERSION;
-
 static char rcsid[] = "$Id: main.c, v 0.13 2011/08/30 14:45:00 erodriguez Exp$";
 static char ldap_host[MAX_BUF] = "localhost";
 static int  ldap_port = LDAP_PORT;
@@ -52,7 +50,6 @@ static bool	ldap_usetls = 0;
 
 
 static struct ldap_data ldap_data;
-//static struct chap_digest_type chap_digest_type;
 
 static option_t ldap_options[] = {
 	{ "ldaphost", 		o_string, 	ldap_host,
@@ -116,7 +113,6 @@ static int ldap_address_allowed(u_int32_t addr) {
 	if ((ipcp_wantoptions[0].hisaddr != 0) && (ipcp_wantoptions[0].hisaddr == addr)) {
 		return 1;
 	}
-
 	return 0;
 }
 
@@ -126,17 +122,13 @@ static int ldap_pap_auth(char *user, char *password, char **msgp, struct wordlis
 	return ldap_auth(user,password);
 }
 
-
-
 /* function to perform user check on LDAP */
 static int ldap_auth (char *user, char *password) {
-
 	info("LDAP: (ldap_auth)");
 
 	int rc;
 	int ldap_errno;
 	LDAP *ldap;
-
 
 	// Initiate session and bind to LDAP server
 	info("LDAP: (ldap_auth - init)");
@@ -202,7 +194,6 @@ static int ldap_auth (char *user, char *password) {
 	}
 	info("LDAP: search filter: %s\n",filter);
 
-
 	/* Perform search*/
 	info("LDAP: (ldap_auth - SEARCH)");
 	LDAPMessage *ldap_mesg;
@@ -212,7 +203,6 @@ static int ldap_auth (char *user, char *password) {
 		ldap_unbind(ldap);
 		return -1;
 	};
-
 
 	/* If search returned more than 2 results or 0 - something is wrong! */
 	info("LDAP: (ldap_auth - VALIDATE SEARCH)");
