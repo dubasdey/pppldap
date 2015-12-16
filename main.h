@@ -24,15 +24,15 @@
 #define LDAP_FILT_MAXSIZ  1024
 
 struct ldap_data {
-        int			maxconnect; 		/* maximum connect time in sec */
-        int			maxoctets; 			/* maximum number of octets, reserved */
-        int			maxoctets_dir; 		/* limit direction, reserved */
-        int			idle_time_limit; 	/* connection idle timeout in sec */
-        int			mru; 				/* Maximum recieve unit, reserved  */
-        u_int32_t	addr; 				/* peer's IP address in network format */
-        bool		access_ok; 			/* 1 if username/password pair correct */
-        bool		address_set; 		/* 1 if addr contains value */
-        bool		rebind; 			/* set to 1, reserved */
+	int			maxconnect; 		/* maximum connect time in sec */
+	int			maxoctets; 			/* maximum number of octets, reserved */
+	int			maxoctets_dir; 		/* limit direction, reserved */
+	int			idle_time_limit; 	/* connection idle timeout in sec */
+	int			mru; 				/* Maximum recieve unit, reserved  */
+	u_int32_t	addr; 				/* peer's IP address in network format */
+	bool		access_ok; 			/* 1 if username/password pair correct */
+	bool		address_set; 		/* 1 if addr contains value */
+	bool		rebind; 			/* set to 1, reserved */
 };
 
 
@@ -44,9 +44,9 @@ static int  ldap_setoptions(LDAP *ld, LDAPMessage *mesg,struct ldap_data *ldap_d
 static int  ldap_pap_auth(char *user, char *password, char **msgp, struct wordlist **paddrs, struct wordlist **popts);
 static int  ldap_pap_check();
 
-/* IP allow*/
+/* IP allow */
 static void ldap_ip_choose(u_int32_t *addrp);
 static int ldap_address_allowed(u_int32_t addr);
 
-/* function to autenticate on LDAP with the user and password*/
+/* function to autenticate on LDAP with the user and password */
 static int ldap_auth(char *user, char *password);
