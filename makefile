@@ -28,8 +28,9 @@ CFLAGS=-I../.. -I../../../include -O2 -fPIC
 LDFLAGS=-lldap -lc
 
 get-deps:
-	apt-get install libldap2-dev ppp-dev
-	#apt-get install make gcc dpkg-dev
+        # Commented to build by travis. uncomment if needed 
+	# apt-get install libldap2-dev ppp-dev
+	# apt-get install make gcc dpkg-dev
 
 build:
 	gcc $(CFLAGS) -c -o main.o main.c 				# compile main
