@@ -5,3 +5,10 @@ before_install:
   - sudo apt-get install -y libldap2-dev 
   - sudo apt-get install -y ppp-dev
 compiler: gcc
+
+deploy:
+  provider: releases
+  api_key: $GITAPI
+  file: "pppd_ldap.so"
+  on:
+    tags: true
