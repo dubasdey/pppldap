@@ -1,3 +1,6 @@
 language: c
-before_install: sudo apt-get install libldap2-dev ppp-dev
+before_install: 
+  - sudo apt-get update -qq
+  - sudo apt-get install -y libldap2-dev 
+  - sudo apt-get install -y ppp-dev
 compiler: gcc
