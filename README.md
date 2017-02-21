@@ -1,6 +1,7 @@
 # pppldap
 
 ![LGPLv3](http://img.shields.io/badge/license-LGPLv3-green.svg)
+[![Build Status](https://travis-ci.org/dubasdey/pppldap.svg?branch=master)](https://travis-ci.org/dubasdey/pppldap)
 
 Information
 -----------------------------------------------------------------------------------------
