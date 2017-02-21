@@ -27,18 +27,18 @@ DESTINATION=/usr/lib/pppd/2.4.5/pppd_ldap.so
 CFLAGS=-I../.. -I../../../include -O2 -fPIC
 LDFLAGS=-lldap -lc
 
-get-deps:
+# get-deps:
         # Commented to build by travis. uncomment if needed 
 	# apt-get install libldap2-dev ppp-dev
 	# apt-get install make gcc dpkg-dev
 
 build:
-	gcc $(CFLAGS) -c -o main.o main.c 				# compile main
+	gcc $(CFLAGS) -c -o main.o main.c 		# compile main
 	ld -shared -o pppd_ldap.so  main.o $(LDFLAGS) 	# build pppd_ldap.so
 
 install:
-	cp pppd_ldap.so $(DESTINATION)					# copy
+	cp pppd_ldap.so $(DESTINATION)			# copy
 clean:
-	rm *.o *.so *~									# clean compiled files (locals)
+	rm *.o *.so *~					# clean compiled files (locals)
 	
 	
